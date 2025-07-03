@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<30eaa553a6acde39305cf67a23d323ee>>
+ * @generated SignedSource<<0f133a7fb6b6736e561c5e1247498689>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -8,17 +8,17 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { Fragment, ReaderFragment } from 'relay-runtime';
+import { ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type StoryFragment$data = {
   readonly createdAt: string;
   readonly poster: {
     readonly " $fragmentSpreads": FragmentRefs<"PosterBylineFragment">;
   };
-  readonly summary: string | null;
+  readonly summary: string | null | undefined;
   readonly thumbnail: {
-    readonly " $fragmentSpreads": FragmentRefs<"ImageFragment">;
-  } | null;
+    readonly url: string;
+  } | null | undefined;
   readonly title: string;
   readonly " $fragmentType": "StoryFragment";
 };
@@ -79,15 +79,11 @@ const node: ReaderFragment = {
       "plural": false,
       "selections": [
         {
-          "args": [
-            {
-              "kind": "Literal",
-              "name": "width",
-              "value": 400
-            }
-          ],
-          "kind": "FragmentSpread",
-          "name": "ImageFragment"
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "url",
+          "storageKey": null
         }
       ],
       "storageKey": null
@@ -97,6 +93,6 @@ const node: ReaderFragment = {
   "abstractKey": null
 };
 
-(node as any).hash = "779b222c2da4e07d32eef85f18a36314";
+(node as any).hash = "c8272a6fbe94511386d1e7ca6ebaa846";
 
 export default node;

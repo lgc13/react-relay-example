@@ -7,23 +7,14 @@ import type { NewsfeedQuery as NewsfeedQueryType } from "./__generated__/Newsfee
 const NewsfeedQuery = graphql`
   query NewsfeedQuery { # query name MUST begin with the module name. In this case, Newsfeed
     topStory {
-      title
-      summary
-      poster {
-        name
-        profilePicture {
-          url
-        }
-      }
-      thumbnail {
-        url
-      }
-    }
+      ...StoryFragment
+    } 
   }
 `
 
 export default function Newsfeed() {
   const data = useLazyLoadQuery<NewsfeedQueryType>(NewsfeedQuery, {})
+  console.log('newsfeed data: ', data)
 
   const story = data.topStory
 
