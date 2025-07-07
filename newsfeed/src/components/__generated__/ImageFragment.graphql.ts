@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<5a151a5a268b6dd5b6eb9d293a2e1795>>
+ * @generated SignedSource<<b961782c5c64b006c372a379bf468a67>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -8,10 +8,10 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { Fragment, ReaderFragment } from 'relay-runtime';
+import { ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type ImageFragment$data = {
-  readonly altText: string | null;
+  readonly altText: string | null | undefined;
   readonly url: string;
   readonly " $fragmentType": "ImageFragment";
 };
@@ -67,6 +67,6 @@ const node: ReaderFragment = {
   "abstractKey": null
 };
 
-(node as any).hash = "cec0abfc31c05b982094d4487b66f6ab";
+(node as any).hash = "63e35c202f0dd06cbe5536167629207a";
 
 export default node;
