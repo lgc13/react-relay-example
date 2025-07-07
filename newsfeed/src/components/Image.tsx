@@ -6,7 +6,7 @@ import { useFragment } from "react-relay";
 const ImageFragment = graphql`
   fragment ImageFragment on Image
     @argumentDefinitions(
-      test: {
+      width: {
         type: "Int",
         defaultValue: null
       }
