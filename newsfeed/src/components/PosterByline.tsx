@@ -1,11 +1,12 @@
 import * as React from "react";
 import Image from "./Image";
 import { graphql } from "relay-runtime";
-import { useFragment } from "react-relay";
+import { useFragment, useQueryLoader } from "react-relay";
 import { PosterBylineFragment$key } from "./__generated__/PosterBylineFragment.graphql";
 import { useRef } from "react";
 import Hovercard from "./Hovercard";
-import PosterDetailsHovercardContents from "./PosterDetailsHovercardContents";
+import PosterDetailsHovercardContents, { PosterDetailsHovercardContentsQuery } from "./PosterDetailsHovercardContents";
+import type { PosterDetailsHovercardContentsQuery as HovercardQueryType } from "./__generated__/PosterDetailsHovercardContentsQuery.graphql";
 
 const PosterBylineFragment = graphql`
   fragment PosterBylineFragment on Actor {
@@ -25,7 +26,13 @@ export default function PosterByline({ poster }: Props): React.ReactElement {
   const data = useFragment(PosterBylineFragment, poster)
   const hoverRef = useRef(null)
 
-  console.log('poster data: ', data)
+  const [hovercardQueryRef, loadHovercardQuery] = useQueryLoader<HovercardQueryType>(PosterDetailsHovercardContentsQuery)
+
+  const onBeginHover = () => {
+    loadHovercardQuery({
+      posterID: data.id
+    })
+  }
 
   return (
     <div className="byline" ref={hoverRef}>
@@ -36,8 +43,8 @@ export default function PosterByline({ poster }: Props): React.ReactElement {
         className="byline__image"
       />
       <div className="byline__name">{data.name}</div>
-      <Hovercard targetRef={hoverRef}>
-        <PosterDetailsHovercardContents posterID={data.id} />
+      <Hovercard targetRef={hoverRef} onBeginHover={onBeginHover}>
+        <PosterDetailsHovercardContents queryRef={hovercardQueryRef} />
       </Hovercard>
     </div>
   );
