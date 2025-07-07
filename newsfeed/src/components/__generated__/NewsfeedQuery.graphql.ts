@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<a4cf159e8cc23d6992a36e320fcc1815>>
+ * @generated SignedSource<<e28206a8512d826f656a913a1340a2a7>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -13,6 +13,7 @@ import { FragmentRefs } from "relay-runtime";
 export type NewsfeedQuery$variables = Record<PropertyKey, never>;
 export type NewsfeedQuery$data = {
   readonly topStories: ReadonlyArray<{
+    readonly id: string;
     readonly " $fragmentSpreads": FragmentRefs<"StoryFragment">;
   } | null | undefined> | null | undefined;
 };
@@ -26,14 +27,14 @@ var v0 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "altText",
+  "name": "id",
   "storageKey": null
 },
 v1 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "id",
+  "name": "altText",
   "storageKey": null
 };
 return {
@@ -51,6 +52,7 @@ return {
         "name": "topStories",
         "plural": true,
         "selections": [
+          (v0/*: any*/),
           {
             "args": null,
             "kind": "FragmentSpread",
@@ -77,6 +79,7 @@ return {
         "name": "topStories",
         "plural": true,
         "selections": [
+          (v0/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -117,6 +120,7 @@ return {
                 "kind": "TypeDiscriminator",
                 "abstractKey": "__isActor"
               },
+              (v0/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -150,11 +154,10 @@ return {
                     "name": "url",
                     "storageKey": "url(height:60,width:60)"
                   },
-                  (v0/*: any*/)
+                  (v1/*: any*/)
                 ],
                 "storageKey": null
-              },
-              (v1/*: any*/)
+              }
             ],
             "storageKey": null
           },
@@ -179,27 +182,26 @@ return {
                 "name": "url",
                 "storageKey": "url(width:400)"
               },
-              (v0/*: any*/)
+              (v1/*: any*/)
             ],
             "storageKey": null
-          },
-          (v1/*: any*/)
+          }
         ],
         "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "b01690d79a4e0b2d760bb467657c4c01",
+    "cacheID": "7a17a87f44e3d197f1c4520115854b8e",
     "id": null,
     "metadata": {},
     "name": "NewsfeedQuery",
     "operationKind": "query",
-    "text": "query NewsfeedQuery {\n  topStories {\n    ...StoryFragment\n    id\n  }\n}\n\nfragment ImageFragment_3XLoCc on Image {\n  url(height: 60, width: 60)\n  altText\n}\n\nfragment ImageFragment_OxVt3 on Image {\n  url(width: 400)\n  altText\n}\n\nfragment PosterBylineFragment on Actor {\n  __isActor: __typename\n  name\n  profilePicture {\n    ...ImageFragment_3XLoCc\n  }\n}\n\nfragment StoryFragment on Story {\n  title\n  summary\n  createdAt\n  poster {\n    __typename\n    ...PosterBylineFragment\n    id\n  }\n  thumbnail {\n    ...ImageFragment_OxVt3\n  }\n}\n"
+    "text": "query NewsfeedQuery {\n  topStories {\n    id\n    ...StoryFragment\n  }\n}\n\nfragment ImageFragment_3XLoCc on Image {\n  url(height: 60, width: 60)\n  altText\n}\n\nfragment ImageFragment_OxVt3 on Image {\n  url(width: 400)\n  altText\n}\n\nfragment PosterBylineFragment on Actor {\n  __isActor: __typename\n  id\n  name\n  profilePicture {\n    ...ImageFragment_3XLoCc\n  }\n}\n\nfragment StoryFragment on Story {\n  title\n  summary\n  createdAt\n  poster {\n    __typename\n    ...PosterBylineFragment\n    id\n  }\n  thumbnail {\n    ...ImageFragment_OxVt3\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "79c1e9b17c9e6b3806677b71295f76d1";
+(node as any).hash = "06e6b6b9d307eae64894bc47ffa26664";
 
 export default node;
