@@ -16,7 +16,6 @@ const NewsfeedQuery = graphql`
 
 export default function Newsfeed() {
   const data = useLazyLoadQuery<NewsfeedQueryType>(NewsfeedQuery, {});
-  console.log("newsfeed data: ", data);
 
   const stories = data.topStories;
 
