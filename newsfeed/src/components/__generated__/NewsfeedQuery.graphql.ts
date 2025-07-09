@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<67a47cb0fbbed019787b03c10dc91c47>>
+ * @generated SignedSource<<df8c36c97cfeacd323d2c6762e13cdee>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -289,6 +289,20 @@ return {
                         "kind": "LinkedHandle",
                         "name": "comments"
                       },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "likeCount",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "doesViewerLike",
+                        "storageKey": null
+                      },
                       (v2/*: any*/)
                     ],
                     "storageKey": null
@@ -328,12 +342,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "7579f196b51c95c23a11d4e84c3e3dc6",
+    "cacheID": "670524fed67d1db399e6ff7b2930b5cf",
     "id": null,
     "metadata": {},
     "name": "NewsfeedQuery",
     "operationKind": "query",
-    "text": "query NewsfeedQuery {\n  ...NewsfeedContentsFragment\n}\n\nfragment CommentFragment on Comment {\n  text\n}\n\nfragment ImageFragment_3XLoCc on Image {\n  url(height: 60, width: 60)\n  altText\n}\n\nfragment ImageFragment_OxVt3 on Image {\n  url(width: 400)\n  altText\n}\n\nfragment NewsfeedContentsFragment on Query {\n  viewer {\n    newsfeedStories(first: 3) {\n      edges {\n        node {\n          id\n          ...StoryFragment\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n\nfragment PosterBylineFragment on Actor {\n  __isActor: __typename\n  id\n  name\n  profilePicture {\n    ...ImageFragment_3XLoCc\n  }\n}\n\nfragment StoryCommentsSectionFragment on Story {\n  comments(first: 3) {\n    edges {\n      node {\n        id\n        ...CommentFragment\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n  }\n  id\n}\n\nfragment StoryFragment on Story {\n  title\n  summary\n  createdAt\n  poster {\n    __typename\n    ...PosterBylineFragment\n    id\n  }\n  thumbnail {\n    ...ImageFragment_OxVt3\n  }\n  ...StoryCommentsSectionFragment\n}\n"
+    "text": "query NewsfeedQuery {\n  ...NewsfeedContentsFragment\n}\n\nfragment CommentFragment on Comment {\n  text\n}\n\nfragment ImageFragment_3XLoCc on Image {\n  url(height: 60, width: 60)\n  altText\n}\n\nfragment ImageFragment_OxVt3 on Image {\n  url(width: 400)\n  altText\n}\n\nfragment NewsfeedContentsFragment on Query {\n  viewer {\n    newsfeedStories(first: 3) {\n      edges {\n        node {\n          id\n          ...StoryFragment\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n\nfragment PosterBylineFragment on Actor {\n  __isActor: __typename\n  id\n  name\n  profilePicture {\n    ...ImageFragment_3XLoCc\n  }\n}\n\nfragment StoryCommentsComposerFragment on Story {\n  id\n}\n\nfragment StoryCommentsSectionFragment on Story {\n  comments(first: 3) {\n    edges {\n      node {\n        id\n        ...CommentFragment\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n  }\n  ...StoryCommentsComposerFragment\n  id\n}\n\nfragment StoryFragment on Story {\n  title\n  summary\n  createdAt\n  poster {\n    __typename\n    ...PosterBylineFragment\n    id\n  }\n  thumbnail {\n    ...ImageFragment_OxVt3\n  }\n  ...StoryCommentsSectionFragment\n  ...StoryLikeButtonFragment\n}\n\nfragment StoryLikeButtonFragment on Story {\n  id\n  likeCount\n  doesViewerLike\n}\n"
   }
 };
 })();

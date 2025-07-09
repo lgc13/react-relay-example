@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<9fcda35f0e424656fd0497592e2b322a>>
+ * @generated SignedSource<<b10d64d3e1d4d9818b425ed7209fe2ba>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -327,6 +327,20 @@ return {
                         "kind": "LinkedHandle",
                         "name": "comments"
                       },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "likeCount",
+                        "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "doesViewerLike",
+                        "storageKey": null
+                      },
                       (v3/*: any*/)
                     ],
                     "storageKey": null
@@ -366,12 +380,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "ebdc4e2367077e5ba21d4da209b3ce98",
+    "cacheID": "4c67aa543f1fc8688621352fd35423a6",
     "id": null,
     "metadata": {},
     "name": "NewsfeedContentsRefetchQuery",
     "operationKind": "query",
-    "text": "query NewsfeedContentsRefetchQuery(\n  $count: Int = 3\n  $cursor: String\n) {\n  ...NewsfeedContentsFragment_1G22uz\n}\n\nfragment CommentFragment on Comment {\n  text\n}\n\nfragment ImageFragment_3XLoCc on Image {\n  url(height: 60, width: 60)\n  altText\n}\n\nfragment ImageFragment_OxVt3 on Image {\n  url(width: 400)\n  altText\n}\n\nfragment NewsfeedContentsFragment_1G22uz on Query {\n  viewer {\n    newsfeedStories(after: $cursor, first: $count) {\n      edges {\n        node {\n          id\n          ...StoryFragment\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n\nfragment PosterBylineFragment on Actor {\n  __isActor: __typename\n  id\n  name\n  profilePicture {\n    ...ImageFragment_3XLoCc\n  }\n}\n\nfragment StoryCommentsSectionFragment on Story {\n  comments(first: 3) {\n    edges {\n      node {\n        id\n        ...CommentFragment\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n  }\n  id\n}\n\nfragment StoryFragment on Story {\n  title\n  summary\n  createdAt\n  poster {\n    __typename\n    ...PosterBylineFragment\n    id\n  }\n  thumbnail {\n    ...ImageFragment_OxVt3\n  }\n  ...StoryCommentsSectionFragment\n}\n"
+    "text": "query NewsfeedContentsRefetchQuery(\n  $count: Int = 3\n  $cursor: String\n) {\n  ...NewsfeedContentsFragment_1G22uz\n}\n\nfragment CommentFragment on Comment {\n  text\n}\n\nfragment ImageFragment_3XLoCc on Image {\n  url(height: 60, width: 60)\n  altText\n}\n\nfragment ImageFragment_OxVt3 on Image {\n  url(width: 400)\n  altText\n}\n\nfragment NewsfeedContentsFragment_1G22uz on Query {\n  viewer {\n    newsfeedStories(after: $cursor, first: $count) {\n      edges {\n        node {\n          id\n          ...StoryFragment\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n\nfragment PosterBylineFragment on Actor {\n  __isActor: __typename\n  id\n  name\n  profilePicture {\n    ...ImageFragment_3XLoCc\n  }\n}\n\nfragment StoryCommentsComposerFragment on Story {\n  id\n}\n\nfragment StoryCommentsSectionFragment on Story {\n  comments(first: 3) {\n    edges {\n      node {\n        id\n        ...CommentFragment\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n  }\n  ...StoryCommentsComposerFragment\n  id\n}\n\nfragment StoryFragment on Story {\n  title\n  summary\n  createdAt\n  poster {\n    __typename\n    ...PosterBylineFragment\n    id\n  }\n  thumbnail {\n    ...ImageFragment_OxVt3\n  }\n  ...StoryCommentsSectionFragment\n  ...StoryLikeButtonFragment\n}\n\nfragment StoryLikeButtonFragment on Story {\n  id\n  likeCount\n  doesViewerLike\n}\n"
   }
 };
 })();
